@@ -1,0 +1,4 @@
+name: foodadder
+version: '0.1-SNAPSHOT'
+main: de.imbadingerman.foodadder.Foodadder
+api-version: '1.20'
