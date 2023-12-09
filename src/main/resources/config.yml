@@ -1,0 +1,12 @@
+items:
+  example_item:
+    amount_of_bites:
+    items:
+      -
+      -
+      -
+      -
+    set_item_back: true
+    item_back:
+      item:
+      amount:

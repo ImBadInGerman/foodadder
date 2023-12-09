@@ -1,4 +1,10 @@
-name: foodadder
+name: FoodAdder
 version: '0.1-SNAPSHOT'
 main: de.imbadingerman.foodadder.Foodadder
 api-version: '1.20'
+depend: [ItemsAdder]
+commands:
+  fooditems:
+    description: Config Dump
+    usage: /fooditems
+
