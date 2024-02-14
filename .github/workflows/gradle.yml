@@ -29,6 +29,7 @@ jobs:
 #    - name: Build
 #      run: ./gradlew build
   release:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
