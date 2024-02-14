@@ -14,7 +14,7 @@ on:
     branches: [ "master" ]
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
   build:
@@ -31,19 +31,26 @@ jobs:
       uses: gradle/gradle-build-action@v3
     - name: Build
       run: ./gradlew build
-
-
-
-
-
-
-
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v4
+    - name: Setup JDK 17
+      uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@v3.1.0
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v3
+    - name: Build
+      run: ./gradlew build
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        arguments: build
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
