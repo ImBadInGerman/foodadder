@@ -1,3 +1,4 @@
+debug: true
 items:
   example_item:
     amount_of_bites:

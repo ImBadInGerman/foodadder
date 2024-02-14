@@ -1,10 +1,6 @@
 name: FoodAdder
 version: '${version}'
-main: de.imbadingerman.foodadder.Foodadder
+main: de.imbadingerman.foodadder.FoodAdder
 api-version: '1.20'
-depend: [ItemsAdder]
-commands:
-  fooditems:
-    description: Config Dump
-    usage: /fooditems
-
+dependencies: [ ItemsAdder ]
+prefix : '&8[&6FoodAdder&8] &7'
