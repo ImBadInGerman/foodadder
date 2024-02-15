@@ -32,7 +32,7 @@ public class UpdateChecker {
             String currentVersion = plugin.getDescription().getVersion();
             if (!latestVersion.equals(currentVersion)) {
                 // Notify server admins about the update
-                plugin.getLogger().info("An update is available for YourPlugin! Current version: " + currentVersion + ", Latest version: " + latestVersion);
+                plugin.getLogger().info("An update is available for FoodAdder! Current version: " + currentVersion + ", Latest version: " + latestVersion);
             }
 
         } catch (IOException | ParseException e) {
