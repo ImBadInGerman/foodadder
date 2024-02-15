@@ -3,7 +3,7 @@ version: '0.2'
 main: de.imbadingerman.foodadder.FoodAdder
 api-version: '1.20'
 dependencies: [ ItemsAdder ]
-prefix : '[FoodAdder]'
+prefix : 'FoodAdder'
 commands:
   foodadder:
     description: "Zeigt die FoodAdder-Hilfe an"

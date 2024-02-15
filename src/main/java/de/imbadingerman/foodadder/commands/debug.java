@@ -25,7 +25,7 @@ public class debug implements CommandExecutor {
 
         boolean debugValue = Boolean.parseBoolean(args[1]);
 
-        configHandler.set("debug", debugValue);
+        configHandler.set(debugValue);
 
         Player player = (Player) sender;
         player.sendMessage("Debug mode set to " + debugValue);

@@ -5,8 +5,10 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ConfigHandler {
+
     private final Plugin plugin;
     private FileConfiguration config;
     private File configFile;
@@ -17,10 +19,13 @@ public class ConfigHandler {
 
     public void setupConfig() {
         configFile = new File(plugin.getDataFolder(), "config.yml");
+
+        // If config file doesn't exist, create it and load defaults
         if (!configFile.exists()) {
             plugin.saveResource("config.yml", false);
         }
 
+        // Load configuration
         config = YamlConfiguration.loadConfiguration(configFile);
     }
 
@@ -31,25 +36,18 @@ public class ConfigHandler {
     public void saveConfig() {
         try {
             config.save(configFile);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            plugin.getLogger().warning("Unable to save config.yml!");
         }
     }
 
-    public String getString(String path) {
-        return config.getString(path);
+    public boolean isUpdateAvailable() {
+        // Logic to check if an update is available
+        // Return true if an update is available, otherwise false
+        return false;
     }
 
-    public void set(String path, Object value) {
-        config.set(path, value);
-        saveConfig();
-    }
-
-    public boolean isDebug() {
-        return config.getBoolean("debug", false);
-    }
-
-    public void setDebug(boolean value) {
-        set("debug", value);
+    public void set(boolean debugValue) {
+        return;
     }
 }
